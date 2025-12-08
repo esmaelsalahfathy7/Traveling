@@ -1,0 +1,609 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-style: normal;
+  --main-color: #03a9f4;
+  --secondary-color: #005c85;
+  --background-color: #eee;
+  --text-color: #777;
+  --transition: 0.5s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.custom-bt {
+  background-color: var(--main-color);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 0px 1px var(--secondary-color);
+  cursor: pointer;
+  padding: 15px 25px;
+  height: fit-content;
+  color: white;
+  transition: var(--transition);
+  margin-left: 10px;
+}
+
+.custom-bt:hover {
+  background-color: var(--secondary-color);
+}
+
+.special-heading {
+  width: fit-content;
+  margin: 0 auto 40px;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 900;
+  padding: 20px;
+  transition: var(--transition);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 5px 2px var(--secondary-color);
+  z-index: 1050;
+}
+
+.special-heading:hover {
+  background-color: var(--main-color);
+  box-shadow: 0 0 15px 4px var(--secondary-color);
+  color: white;
+}
+
+/* Container */
+.container {
+  margin: auto;
+  width: 100%;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 950px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1150px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1350px;
+  }
+}
+/* Start Log-in-------------------------------------------------- */
+.content {
+  display: none;
+  width: 80%;
+  height: 500px;
+  box-shadow: 0 0 10px 2px #aaa;
+  position: fixed;
+  z-index: 1052;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border-radius: 10px;
+  transition: var(--transition);
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.overlay {
+  content: "";
+  position: absolute;
+  background-color: #dddddd94;
+  display: none;
+  z-index: 1051;
+  filter: blur();
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    height: 100%;
+  }
+}
+.sign-in,
+.sign-up {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  background-color: #000000c4;
+  transition: var(--transition);
+}
+
+.sign-up {
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .sign-in,
+  .sign-up {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+.sign-in .welcome,
+.sign-up .welcome {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px 0 0 10px;
+  color: var(--text-color);
+  padding: 20px;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.sign-up .welcome {
+  transform: translateY(-100%);
+}
+
+.sign-in .welcome h1 {
+  font-size: 35px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.sign-in .welcome p {
+  font-size: 22px;
+  margin: 30px 0;
+}
+
+.sign-in .data,
+.sign-up .data {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+  transition: var(--transition);
+  background-image: linear-gradient(
+    45deg,
+    var(--secondary-color) 0%,
+    #242b2f 50%,
+    var(--secondary-color) 100%
+  );
+}
+
+.sign-up .data {
+  transform: translateY(100%);
+}
+
+.sign-in .data .caption {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  word-spacing: 10px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.sign-in form,
+.sign-up form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.sign-in form > input:not([type="submit"]),
+.sign-up form > input:not([type="submit"]) {
+  width: 300px;
+  height: 50px;
+  font-size: 18px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 2px 1px var(--main-color);
+}
+
+.sign-in form > input:not([type="submit"]):focus,
+.sign-up form > input:not([type="submit"]):focus {
+  box-shadow: 0 0 15px 1px var(--main-color);
+}
+
+.sign-in form input[type="submit"],
+.sign-up form input[type="submit"] {
+  width: fit-content;
+  margin: auto;
+  font-size: 18px;
+  display: block;
+}
+
+.sign-in form .credintial {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.sign-in form .credintial a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.content .close {
+  position: absolute;
+  z-index: 15650;
+  font-size: 30px;
+  color: var(--main-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.content .close:hover {
+  color: var(--secondary-color);
+}
+/* End Log-in-------------------------------------------------- */
+
+/* Start Header */
+header {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  z-index: 1050;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+header .logo img {
+  display: block;
+  width: 80px;
+}
+
+header .container nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .container nav ul {
+  display: flex;
+}
+
+header .container nav ul a {
+  color: white;
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+header .container nav ul a::before {
+  content: "";
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: -10px;
+  position: absolute;
+  background-color: var(--main-color);
+  transition: var(--transition);
+}
+
+header .container nav ul a:hover::before {
+  width: 100%;
+}
+
+header .container svg {
+  display: none;
+  color: white;
+  font-size: 30px;
+}
+
+header .container svg:hover + ul {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  header .container svg {
+    display: block;
+  }
+
+  header .container nav ul {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    flex-direction: column;
+    background-color: var(--main-color);
+    gap: 0;
+  }
+
+  header .container nav ul li:not(:last-of-type) a {
+    border-bottom: 2px solid white;
+  }
+
+  header .container nav ul a:hover {
+    background-color: var(--secondary-color);
+  }
+
+  header .container nav ul a:hover::before {
+    display: none;
+  }
+}
+
+header .container .login {
+  cursor: pointer;
+  padding: 15px 25px;
+  height: fit-content;
+}
+/* End Header */
+/* Start Landing */
+section.landing {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url(../Assets/background.jpg);
+  background-size: cover;
+}
+
+section.landing::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: black;
+  z-index: -1;
+}
+
+section.landing .intro-text {
+  width: 600px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  section.landing {
+    background-position: -110px;
+  }
+  section.landing h1 {
+    font-size: 1.7em;
+  }
+}
+
+section.landing .intro-text p {
+  line-height: 1.6;
+}
+/* End Landing */
+/* Start Service */
+.services {
+  background-color: var(--background-color);
+  padding: 60px 0;
+}
+
+.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.services .container .serv-info {
+  background-color: white;
+  padding: 20px;
+  height: 200px;
+}
+
+.services .container h2 {
+  margin-top: 0;
+  color: var(--main-color);
+}
+
+.services .container p {
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.services .container img {
+  max-width: 100%;
+  display: block;
+}
+/* End Service */
+/* Start Places */
+.places {
+  padding: 60px 0;
+}
+
+.places .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.places .container .place {
+  position: relative;
+  align-self: stretch;
+  border: 2px solid var(--main-color);
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.places .container .place .place-name {
+  font-size: 18px;
+  width: 100%;
+  color: var(--secondary-color);
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.places .container img {
+  max-width: 100%;
+  display: block;
+  transition: var(--transition);
+}
+
+.places .container .place:hover img {
+  transform: rotate(10deg) scale(1.3);
+}
+/* End Places */
+/* Start Review */
+.reviews {
+  padding: 60px 0;
+  background-color: var(--background-color);
+}
+
+.reviews .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.reviews .container > div {
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+  padding: 10px;
+}
+
+.reviews .container img {
+  display: inline-block;
+  width: 64px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: -20px;
+}
+
+.reviews .container h4 {
+  font-size: 20px;
+  color: var(--main-color);
+}
+.reviews .container p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.reviews .container i {
+  cursor: pointer;
+}
+/* End Review */
+/* Start About Us */
+.about-us {
+  padding: 60px 0;
+  position: relative;
+}
+
+.about-us .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  color: var(--main-color);
+}
+
+.about-us .container dl {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.about-us .container dd {
+  color: var(--text-color);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* End About Us */
+/* Start Contact US */
+.contact {
+  padding: 60px 0 30px;
+  background-color: var(--background-color);
+}
+
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact .container > div:first-child {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--secondary-color);
+}
+
+.contact .container > a {
+  font-size: 27px;
+  margin: 20px;
+  font-weight: 900;
+  color: var(--main-color);
+}
+.contact .social-media,
+.contact .social-media ul {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+}
+
+.contact .social-media ul a {
+  color: var(--secondary-color);
+  font-size: 20px;
+}
+/* End Contact US */
