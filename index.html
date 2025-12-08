@@ -28,6 +28,10 @@
         </div>
         <div class="data">
           <div class="caption">Sign IN</div>
+          <div class="wrong-data" style="color: red; margin-bottom: 10px; display: none;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Wrong Username Or Password </span>
+          </div>
           <form method="get">
             <input
               class="username"
@@ -55,7 +59,7 @@
       <div class="sign-up">
         <div class="data">
           <form action="" method="post">
-            <h1 style=" margin: 0 auto 10px;">Sign UP</h1>
+            <h1 style="margin: 0 auto 10px">Sign UP</h1>
             <input required type="text" placeholder="First Name" />
             <input required type="text" placeholder="Last Name" />
             <input required type="email" placeholder="Email" />
@@ -78,11 +82,13 @@
           <i class="fa-solid fa-bars-staggered"></i>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Places</a></li>
-            <li><a href="#">Reviews</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#places">Places</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
           </ul>
           <button class="login custom-bt">Login</button>
+          <div class="user" style="">test</div>
         </nav>
       </div>
     </header>
@@ -101,7 +107,7 @@
         </div>
       </div>
     </section>
-    <section class="services">
+    <section id="services" class="services">
       <div class="special-heading">Services</div>
       <div class="container">
         <div class="serv">
@@ -139,7 +145,7 @@
         </div>
       </div>
     </section>
-    <section class="places">
+    <section id="places" class="places">
       <div class="special-heading">Places</div>
       <div class="container">
         <div class="place">
@@ -176,7 +182,7 @@
         </div>
       </div>
     </section>
-    <section class="reviews">
+    <section id="reviews" class="reviews">
       <div class="special-heading">Reviews</div>
       <div class="container">
         <div>
@@ -310,7 +316,7 @@
         </dl>
       </div>
     </section>
-    <section class="contact">
+    <section id="contact-us" class="contact">
       <div class="special-heading">Contact US</div>
       <div class="container">
         <div>Feel Free To Drop US A Line At:</div>
